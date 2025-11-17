@@ -1,9 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Aprende live coding</title>
-    </head>
-    <body>
-        <p>En esta web iremos subiendo ejemplos de codigo para los concursantes.</p>
-    </body>
+
+<head>
+  <title>Aprende Live Coding</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/grayscale.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js/dist/highlightjs-line-numbers.min.js"></script>
+  <script>
+    function copyCode(id) {
+      code = document.getElementById(id).innerText.trim();
+      navigator.clipboard.writeText(code);
+    }
+    hljs.highlightAll();
+  </script>
+</head>
+
+<body>
+  <h1><b>></b> Aprende Live Coding</h1>
+  <p>¿Es tu primera vez haciendo live coding? ¿O programando? ¡No te preocupes! Aquí te enseñamos cómo hacer tus primeros sonidos y visuales con código :)</p>
+
+  <h2>$ Jam session</h1>
+  <p>Para probar el código, usa el editor colaborativo de Flok a la derecha.</p>
+  <p>Si no está abierto, puedes abrir la sesión pulsando el siguiente botón:</p>
+  <a class="btn" href="https://flok.cc/s/precious-peach-macaw-3d18645c">
+    Únete
+  </a>
+
+  <h2>$ Música</h2>
+
+  <p>Empieza creando un beat sencillo:</p>
+  <div class="codeBlock">
+    <pre><code class="language-javascript" style="padding:0;" id=0>$: stack(
+  sound("bd bd sd bd"),
+  note("c d e f g*4").sound("piano")
+)</code></pre>
+    <button onclick="copyCode(0)">Copiar</button>
+  </div>
+
+  <p>Añade hihats</p>
+  <div class="codeBlock">
+    <pre><code class="language-javascript" style="padding:0;" id=1>$: sound("hh hh hh hh")</code></pre>
+    <button onclick="copyCode(1)">Copiar</button>
+  </div>
+
+
+  <h2>$ Visuales</h2>
+
+  <p>Genera un patrón oscilante</p>
+  <div class="codeBlock">
+    <pre><code class="language-javascript" style="padding:0;" id=2>osc().out()</code></pre>
+    <button onclick="copyCode(2)">Copiar</button>
+  </div>
+
+  <footer>
+    <image src="./images/logo-mapfre-horizontal.svg" width="150px"/>
+    <image src="./images/logo-toplap-madrid.svg" height="65px"/>
+    <image src="./images/logo-safe-coders-fest-rojo.svg" height="50px"/>
+  </footer>
+</body>
+
 </html>
