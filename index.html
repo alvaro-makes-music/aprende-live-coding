@@ -29,19 +29,36 @@
 
   <h2>$ Música</h2>
 
-  <p>Empieza creando un beat sencillo:</p>
+  <p>Primera melodía</p>
   <div class="codeBlock">
-    <pre><code class="language-javascript" style="padding:0;" id=0>$: stack(
-  sound("bd bd sd bd"),
-  note("c d e f g*4").sound("piano")
-)</code></pre>
+    <pre><code class="language-javascript" style="padding:0;" id=0>$: note("c d ef bf d4*4").sound("piano")</code></pre>
     <button onclick="copyCode(0)">Copiar</button>
   </div>
 
-  <p>Añade hihats</p>
+  <p>Añadamos otra melodía en respuesta:</p>
   <div class="codeBlock">
-    <pre><code class="language-javascript" style="padding:0;" id=1>$: sound("hh hh hh hh")</code></pre>
+    <pre><code class="language-javascript" style="padding:0;" id=1>$: note("g a bf d4 f4*4").sound("piano")</code></pre>
     <button onclick="copyCode(1)">Copiar</button>
+  </div>
+
+  <p>¡Toca la segunda melodía al revés (con la función rev) para generar más música!</p>
+  <div class="codeBlock">
+    <pre><code class="language-javascript" style="padding:0;" id=2>$: note("g a bf d4 f4*4")
+  .rev()
+  .sound("piano")</code></pre>
+    <button onclick="copyCode(2)">Copiar</button>
+  </div>
+
+  <p>Añade beat</p>
+  <div class="codeBlock">
+    <pre><code class="language-javascript" style="padding:0;" id=3>$: sound("bd:4 bd:4 bd:4 bd:4").lpf(800)</code></pre>
+    <button onclick="copyCode(3)">Copiar</button>
+  </div>
+
+  <p>Más ritmo</p>
+  <div class="codeBlock">
+    <pre><code class="language-javascript" style="padding:0;" id=4>$: sound("hh*[8|16|32]").lpf(1800).gain(0.45)</code></pre>
+    <button onclick="copyCode(4)">Copiar</button>
   </div>
 
 
@@ -49,8 +66,20 @@
 
   <p>Genera un patrón oscilante</p>
   <div class="codeBlock">
-    <pre><code class="language-javascript" style="padding:0;" id=2>osc().out()</code></pre>
-    <button onclick="copyCode(2)">Copiar</button>
+    <pre><code class="language-javascript" style="padding:0;" id=5>// licensed with CC BY-NC-SA 4.0
+//by Marianne Teixido
+//https://marianneteixido.github.io/
+
+osc(5, 0.9, 0.001)
+    .kaleid([3,4,5,7,8,9,10].fast(0.1))
+    .color(0.5, 0.3)
+    .colorama(0.4)
+    .rotate(0.009,()=>Math.sin(time)* -0.001 )
+    .modulateRotate(o0,()=>Math.sin(time) * 0.003)
+    .modulate(o0, 0.9)
+    .scale(0.9)
+    .out(o0)</code></pre>
+    <button onclick="copyCode(5)">Copiar</button>
   </div>
 
   <footer>
