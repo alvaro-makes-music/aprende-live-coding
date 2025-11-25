@@ -3,10 +3,10 @@
 
 <head>
   <title>Aprende Live Coding</title>
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/grayscale.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js/dist/highlightjs-line-numbers.min.js"></script>
+  <link rel="stylesheet" href = "css/style.css" />
+  <link rel="stylesheet" href = "css/highlightjs-themes/grayscale.min.css">
+  <script                src  = "js/highlight.min.js"></script>
+  <script                src  = "js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -85,30 +85,8 @@
     <image src="./images/logo-toplap-madrid.svg" height="65px"/>
     <image src="./images/logo-safe-coders-fest-rojo.svg" height="50px"/>
   </footer>
-  <script>
-    function copyCode(id) {
-      code = document.getElementById(id).innerText.trim()
-      navigator.clipboard.writeText(code)
-    }
-    hljs.highlightAll()
-
-    const startStr = "2025-11-25T19:53:00+01:00"
-    const eventStart = new Date(startStr).getTime()
-
-    function updateContent() {
-      const now             = Date.now()
-      const preEvent        = document.getElementById("pre-event")
-      const duringEvent     = document.getElementById("during-event")
-      const eventHasStarted = now >= eventStart
-
-      preEvent.style.display     = eventHasStarted ? "none"   : "block"
-      duringEvent.style.display  = eventHasStarted ? "block" : "none"
-      // console.log(`${now} has event started? ${eventHasStarted}`)
-    }
-
-    updateContent()
-    setInterval(updateContent, 1000)
-  </script>
+  
+  <script src="js/main.js"></script>
 </body>
 
 </html>
