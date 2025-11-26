@@ -10,74 +10,91 @@
 </head>
 
 <body>
-  <h1><b>></b> Aprende Live Coding</h1>
-  <div id="pre-event">
-    Más info al inicio del evento!
+  <div class="header">
+    <div>
+      <h1>> APRENDE LIVE CODING</h1>
+      <h2 class="subtitle"><i>by hack a boss && toplap madrid</i></h2>
+    </div>
+    <img src="images/dots.svg"/>
   </div>
-  <div id="during-event">
-    <p>¿Es tu primera vez haciendo live coding? ¿O programando? ¡No te preocupes! Aquí te enseñamos cómo hacer tus primeros sonidos y visuales con código :)</p>
-
-    <h2>$ Jam session</h1>
-    <p>Para probar el código, usa el editor colaborativo de Flok a la derecha.</p>
-    <p>Si no está abierto, puedes abrir la sesión pulsando el siguiente botón:</p>
-    <a class="btn" href="https://flok.cc/s/precious-peach-macaw-3d18645c">
-      Únete
-    </a>
-
-    <h2>$ Música</h2>
-
-    <p>Primera melodía</p>
-    <div class="codeBlock">
-      <pre><code class="language-javascript" style="padding:0;" id=0>$: note("c d ef bf d4*4").sound("piano")</code></pre>
-      <button onclick="copyCode(0)">Copiar</button>
+  <div class="content">
+    <div id="pre-event">
+      Más info al inicio del evento!
     </div>
+    <div id="during-event">
+      <p>¿Es tu primera vez haciendo live coding? ¿O programando? ¡No te preocupes! Aquí te enseñamos cómo hacer tus primeros sonidos y visuales con código 😉💻</p>
 
-    <p>Añadamos otra melodía en respuesta:</p>
-    <div class="codeBlock">
-      <pre><code class="language-javascript" style="padding:0;" id=1>$: note("g a bf d4 f4*4").sound("piano")</code></pre>
-      <button onclick="copyCode(1)">Copiar</button>
-    </div>
+      <br/>
 
-    <p>¡Toca la segunda melodía al revés (con la función rev) para generar más música!</p>
-    <div class="codeBlock">
-      <pre><code class="language-javascript" style="padding:0;" id=2>$: note("g a bf d4 f4*4")
-    .rev()
-    .sound("piano")</code></pre>
-      <button onclick="copyCode(2)">Copiar</button>
-    </div>
+      <h2>$ Jam session</h1>
+      <p>Para empezar a hacer música y visuales, únete a la sesión colaborativa que hemos creado pulsando el siguiente botón:</p>
+      <a class="btn" href="https://flok.cc/s/precious-peach-macaw-3d18645c">
+        Únete
+      </a>
+      <br/>
 
-    <p>Añade beat</p>
-    <div class="codeBlock">
-      <pre><code class="language-javascript" style="padding:0;" id=3>$: sound("bd:4 bd:4 bd:4 bd:4").lpf(800)</code></pre>
-      <button onclick="copyCode(3)">Copiar</button>
-    </div>
+      <p>Cuando te unas a la sesión Flok verás 4 huecos o slots. Hay un slot para música y uno para visuales. Escoge uno y haz click debajo del comentario!</p>
 
-    <p>Más ritmo</p>
-    <div class="codeBlock">
-      <pre><code class="language-javascript" style="padding:0;" id=4>$: sound("hh*[8|16|32]").lpf(1800).gain(0.45)</code></pre>
-      <button onclick="copyCode(4)">Copiar</button>
-    </div>
+      <img src="images/flok-setup.png" class="flok-image"/>
 
+      <br/><br/><br/><br/>
 
-    <h2>$ Visuales</h2>
+      <h2>$ Música</h2>
 
-    <p>Genera un patrón oscilante</p>
-    <div class="codeBlock">
-      <pre><code class="language-javascript" style="padding:0;" id=5>// licensed with CC BY-NC-SA 4.0
-  //by Marianne Teixido
-  //https://marianneteixido.github.io/
+      <p>Primera melodía</p>
+      <div class="codeBlock">
+        <pre><code class="language-javascript" style="padding:0;" id=0>$: note("c d ef bf d4*4").sound("piano")</code></pre>
+        <button onclick="copyCode(0)">Copiar</button>
+      </div>
 
-  osc(5, 0.9, 0.001)
-      .kaleid([3,4,5,7,8,9,10].fast(0.1))
-      .color(0.5, 0.3)
-      .colorama(0.4)
-      .rotate(0.009,()=>Math.sin(time)* -0.001 )
-      .modulateRotate(o0,()=>Math.sin(time) * 0.003)
-      .modulate(o0, 0.9)
-      .scale(0.9)
-      .out(o0)</code></pre>
-      <button onclick="copyCode(5)">Copiar</button>
-    </div>
+      <p>Añadamos otra melodía en respuesta:</p>
+      <div class="codeBlock">
+        <pre><code class="language-javascript" style="padding:0;" id=1>$: note("g a bf d4 f4*4").sound("piano")</code></pre>
+        <button onclick="copyCode(1)">Copiar</button>
+      </div>
+
+      <p>¡Toca la segunda melodía al revés (con la función rev) para generar más música!</p>
+      <div class="codeBlock">
+        <pre><code class="language-javascript" style="padding:0;" id=2>$: note("g a bf d4 f4*4")
+  .rev()
+  .sound("piano")</code></pre>
+        <button onclick="copyCode(2)">Copiar</button>
+      </div>
+
+      <p>Añade beat</p>
+      <div class="codeBlock">
+        <pre><code class="language-javascript" style="padding:0;" id=3>$: sound("bd:4 bd:4 bd:4 bd:4").lpf(800)</code></pre>
+        <button onclick="copyCode(3)">Copiar</button>
+      </div>
+
+      <p>Más ritmo</p>
+      <div class="codeBlock">
+        <pre><code class="language-javascript" style="padding:0;" id=4>$: sound("hh*[8|16|32]").lpf(1800).gain(0.45)</code></pre>
+        <button onclick="copyCode(4)">Copiar</button>
+      </div>
+
+      <br/><br/><br/><br/>
+
+      <h2>$ Visuales</h2>
+
+      <p>Genera un patrón oscilante</p>
+      <div class="codeBlock">
+        <pre><code class="language-javascript" style="padding:0;" id=5>// licensed with CC BY-NC-SA 4.0
+//by Marianne Teixido
+//https://marianneteixido.github.io/
+
+osc(5, 0.9, 0.001)
+  .kaleid([3,4,5,7,8,9,10].fast(0.1))
+  .color(0.5, 0.3)
+  .colorama(0.4)
+  .rotate(0.009,()=>Math.sin(time)* -0.001 )
+  .modulateRotate(o0,()=>Math.sin(time) * 0.003)
+  .modulate(o0, 0.9)
+  .scale(0.9)
+  .out(o0)</code></pre>
+        <button onclick="copyCode(5)">Copiar</button>
+      </div>
+  </div>
   </div>
 
   <footer>
