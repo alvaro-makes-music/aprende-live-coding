@@ -18,9 +18,10 @@
     <img src="images/dots.svg"/>
   </div>
   <div class="content">
-    <div id="pre-event">
-      Más info al inicio del evento!
-      <img class="preEventImage" src="images/pre-event.png"></div>
+    <!-- Pre event doesnt center -->
+    <div id="pre-event" class="pre-event-class">
+      <img class="preEventImage" src="images/pre-event.png"/>
+      <h2>Más info a las 20:45 h! ⌛💻🎵🎨</h2>
     </div>
     <div id="during-event">
       <p>¿Es tu primera vez haciendo live coding? ¿O programando? ¡No te preocupes! Aquí te enseñamos cómo hacer tus primeros sonidos y visuales con código 😉💻</p>
@@ -34,67 +35,84 @@
       </a>
       <br/>
 
-      <p>Cuando te unas a la sesión Flok verás 4 huecos o slots. Hay un slot para música y uno para visuales. Escoge uno y haz click debajo del comentario!</p>
+      <p>Cuando te unas a la sesión Flok verás 3 huecos o "slots". Hay un slot para PROBAR música y uno para visuales (compartido con Sabrin). Escoge uno y haz click en el panel para empezar a escribir!</p>
 
       <img src="images/flok-setup.png" class="flok-image"/>
 
       <br/><br/><br/><br/>
 
+      <h2>$ Importante!</h1>
+      <p>Para actualizar el código, pulsa el atajo de teclado Ctrl+Enter (Cmd+Intro en Mac)</p>
+      <br/>
+
+      <br/><br/>
+
       <h2>$ Música</h2>
 
       <p>Primera melodía</p>
       <div class="codeBlock">
-        <pre><code class="language-javascript" style="padding:0;" id=0>$: note("c d ef bf d4*4").sound("piano")</code></pre>
+        <pre><code class="language-javascript" style="padding:0;" id=0>$: n("0 1 2 3").scale("dorian").sound("piano").release(0.25)</code></pre>
         <button onclick="copyCode(0)">Copiar</button>
       </div>
 
-      <p>Añadamos otra melodía en respuesta:</p>
+      <p>Añadamos otra melodía basada en la anterior, pero más alta (con add()):</p>
       <div class="codeBlock">
-        <pre><code class="language-javascript" style="padding:0;" id=1>$: note("g a bf d4 f4*4").sound("piano")</code></pre>
+        <pre><code class="language-javascript" style="padding:0;" id=1>$: n("0 1 2 4".add("4")).scale("dorian").sound("piano").release(0.25)</code></pre>
         <button onclick="copyCode(1)">Copiar</button>
       </div>
 
-      <p>¡Toca la segunda melodía al revés (con la función rev) para generar más música!</p>
+      <p>Toca la segunda melodía al revés (con la función rev):</p>
       <div class="codeBlock">
-        <pre><code class="language-javascript" style="padding:0;" id=2>$: note("g a bf d4 f4*4")
+        <pre><code class="language-javascript" style="padding:0;" id=2>$: n("0 1 2 4".add("7"))
   .rev()
-  .sound("piano")</code></pre>
+  .scale("dorian")
+  .sound("piano")
+  .release(0.25)</code></pre>
         <button onclick="copyCode(2)">Copiar</button>
       </div>
 
-      <p>Añade beat</p>
+      <p>Otra melodía:</p>
       <div class="codeBlock">
-        <pre><code class="language-javascript" style="padding:0;" id=3>$: sound("bd:4 bd:4 bd:4 bd:4").lpf(800)</code></pre>
+        <pre><code class="language-javascript" style="padding:0;" id=3>$: n("{13 13 ~}%8")
+  .scale("dorian")
+  .sound("piano")
+  .release(0.25)</code></pre>
         <button onclick="copyCode(3)">Copiar</button>
       </div>
 
-      <p>Más ritmo</p>
+      <p>Ritmo: platos</p>
       <div class="codeBlock">
-        <pre><code class="language-javascript" style="padding:0;" id=4>$: sound("hh*[8|16|32]").lpf(1800).gain(0.45)</code></pre>
+        <pre><code class="language-javascript" style="padding:0;" id=4>$: sound("hh*16").lpf(1800).gain("[0.3 0.2 0.45 0.2]*2")</code></pre>
         <button onclick="copyCode(4)">Copiar</button>
       </div>
+
+      <p>Cambia el número después de "hh" para cambiar la cantidad de notas de los platos!</p><br/>
+
+      <p>Ritmo: kick</p>
+      <div class="codeBlock">
+        <pre><code class="language-javascript" style="padding:0;" id=5>$: sound("bd bd bd bd").lpf(1100)</code></pre>
+        <button onclick="copyCode(5)">Copiar</button>
+      </div>
+
+      <p>Ritmo: caja</p>
+      <div class="codeBlock">
+        <pre><code class="language-javascript" style="padding:0;" id=6>$: sound("~ sd").gain(0.7)</code></pre>
+        <button onclick="copyCode(6)">Copiar</button>
+      </div>
+
+      <p>Bajo</p>
+      <div class="codeBlock">
+        <pre><code class="language-javascript" style="padding:0;" id=7>$: n("0*4").scale("dorian").transpose(-12).sound("sawtooth").lpf(3000)</code></pre>
+        <button onclick="copyCode(7)">Copiar</button>
+      </div>
+
+      <p>Prueba a cambiar el número dentro de n("...") para cambiar las notas del bajo y la melodía!</p>
 
       <br/><br/><br/><br/>
 
       <h2>$ Visuales</h2>
-
-      <p>Genera un patrón oscilante</p>
-      <div class="codeBlock">
-        <pre><code class="language-javascript" style="padding:0;" id=5>// licensed with CC BY-NC-SA 4.0
-//by Marianne Teixido
-//https://marianneteixido.github.io/
-
-osc(5, 0.9, 0.001)
-  .kaleid([3,4,5,7,8,9,10].fast(0.1))
-  .color(0.5, 0.3)
-  .colorama(0.4)
-  .rotate(0.009,()=>Math.sin(time)* -0.001 )
-  .modulateRotate(o0,()=>Math.sin(time) * 0.003)
-  .modulate(o0, 0.9)
-  .scale(0.9)
-  .out(o0)</code></pre>
-        <button onclick="copyCode(5)">Copiar</button>
-      </div>
+      <br/>
+      Habla con Sabrin (visualista) para que te guíe con el código que ya tenemos!
   </div>
   </div>
 

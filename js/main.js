@@ -1,6 +1,6 @@
-const showCodeRegardless = false
+const showCodeRegardless = true
 // const startStr = "2025-11-27T15:30:00+01:00"
-const startStr = "2025-11-27T15:30:00+01:00"
+const startStr = "2025-11-27T15:52:00+01:00"
 
 function copyCode(id) {
   code = document.getElementById(id).innerText.trim()
@@ -16,7 +16,7 @@ function updateContent() {
   const duringEvent = document.getElementById("during-event")
   const eventHasStarted = now >= eventStart
 
-  preEvent.style.display = showCodeRegardless ? "none" : (eventHasStarted ? "none" : "block")
+  preEvent.style.display = showCodeRegardless ? "none" : (eventHasStarted ? "none" : "flex")
   duringEvent.style.display = showCodeRegardless ? "block" : (eventHasStarted ? "block" : "none")
   // console.log(`${now} has event started? ${eventHasStarted}`)
 }
