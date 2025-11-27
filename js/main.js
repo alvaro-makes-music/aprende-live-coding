@@ -1,6 +1,6 @@
 const showCodeRegardless = false
 // const startStr = "2025-11-27T15:30:00+01:00"
-const startStr = "2025-11-27T09:44:00+01:00"
+const startStr = "2025-11-27T15:30:00+01:00"
 
 function copyCode(id) {
   code = document.getElementById(id).innerText.trim()

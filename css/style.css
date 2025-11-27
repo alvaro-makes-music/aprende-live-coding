@@ -28,6 +28,11 @@ h1 {
   font-size:60px;
 }
 
+.preEventImage {
+  padding: 50px;
+  width: 50%;
+}
+
 .header {
   padding-left: 10px;
   background-color: red;
